@@ -23,7 +23,7 @@ class BubbleService {
         const {
           data: { response },
         } = await Axios.executeRequest({
-          path: "/version-test/api/1.1/obj/FacturasPorPagar",
+          path: "/api/1.1/obj/FacturasPorPagar",
           companyDoc,
           cursor: currentCursor,
         });
@@ -44,7 +44,7 @@ class BubbleService {
         response: { results, remaining },
       },
     } = await Axios.executeRequest({
-      path: "/version-test/api/1.1/obj/Proveedores",
+      path: "/api/1.1/obj/Proveedores",
       companyDoc,
     });
 
@@ -59,7 +59,7 @@ class BubbleService {
         const {
           data: { response },
         } = await Axios.executeRequest({
-          path: "/version-test/api/1.1/obj/Proveedores",
+          path: "/api/1.1/obj/Proveedores",
           companyDoc,
           cursor: currentCursor,
         });
