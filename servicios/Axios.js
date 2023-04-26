@@ -69,7 +69,7 @@ class Axios {
   static async executeDeleteRequest({ path, id }) {
     const url = `${this.baseUrl}${path}/${id}`;
 
-    return await axios({
+    await axios({
       method: "DELETE",
       url,
       headers: {
