@@ -80,7 +80,7 @@ class BubbleService {
         companyId
       );
       const { data } = await Axios.executePostRequest({
-        path: "/version-test/api/1.1/obj/Proveedores",
+        path: "/api/1.1/obj/Proveedores",
         companyDoc,
         data: formattedProvider,
       });
@@ -102,7 +102,7 @@ class BubbleService {
     }
 
     const { data } = await Axios.executePostRequest({
-      path: "/version-test/api/1.1/obj/FacturasPorPagar/bulk",
+      path: "/api/1.1/obj/FacturasPorPagar/bulk",
       data: invoiceToCreateString,
       headers: {
         "Content-Type": "text/plain",
@@ -121,7 +121,7 @@ class BubbleService {
 
     invoicesToUpdate.forEach(async (invoice) => {
       await Axios.executePatchRequest({
-        path: "/version-test/api/1.1/obj/FacturasPorPagar",
+        path: "/api/1.1/obj/FacturasPorPagar",
         fieldsToUpdate: {
           monto_total: invoice.monto_total,
           monto_factura: invoice.monto_factura,
@@ -144,7 +144,7 @@ class BubbleService {
       if (invoiceToDelete.estado === "Por pagar") {
         console.warn("Deleting invoice: ", invoiceToDelete._id);
         await Axios.executeDeleteRequest({
-          path: "/version-test/api/1.1/obj/FacturasPorPagar",
+          path: "/api/1.1/obj/FacturasPorPagar",
           id: invoiceToDelete._id,
         });
       }
