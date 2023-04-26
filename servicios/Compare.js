@@ -40,8 +40,6 @@ class Compare {
       }
     }
 
-    console.warn("Las facturas a eliminar son: ", BUBBLE_invoices);
-
     return {
       invoicesToCreate,
       invoicesToUpdate,

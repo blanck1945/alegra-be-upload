@@ -94,7 +94,6 @@ class BubbleService {
   }
 
   static async createBulkInvoices(invoiceToCreateString) {
-    console.warn(invoiceToCreateString);
     if (invoiceToCreateString === "") {
       console.warn(
         chalk.yellow("8.5/11- Early return - No invoices to update")
@@ -120,8 +119,6 @@ class BubbleService {
       return;
     }
 
-    console.warn(invoicesToUpdate);
-
     invoicesToUpdate.forEach(async (invoice) => {
       await Axios.executePatchRequest({
         path: "/version-test/api/1.1/obj/FacturasPorPagar",
@@ -145,7 +142,7 @@ class BubbleService {
 
     await invoicesToDelete.forEach((invoice) => {
       if (invoice.estado === "Por pagar") {
-        console.warn("Deleting invoice: ", invoice.id);
+        console.warn("Deleting invoice: ", invoice._id);
         Axios.executeDeleteRequest({
           path: "/version-test/api/1.1/obj/FacturasPorPagar",
           id: invoice._id,

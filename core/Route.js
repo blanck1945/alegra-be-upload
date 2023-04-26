@@ -11,7 +11,7 @@ class Route {
       }
     }
 
-    console.warn(chalk.red(err));
+    console.warn(err);
     return res.status(500).send({ status: "error", err });
   }
 }

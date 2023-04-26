@@ -55,7 +55,6 @@ class Axios {
 
   static async executePatchRequest({ path, id, fieldsToUpdate }) {
     const url = `${this.baseUrl}${path}/${id}`;
-    console.warn(url);
 
     return await axios({
       method: "PATCH",
