@@ -140,15 +140,15 @@ class BubbleService {
       );
     }
 
-    await invoicesToDelete.forEach(async (invoice) => {
-      if (invoice.estado === "Por pagar") {
-        console.warn("Deleting invoice: ", invoice._id);
+    for (const invoiceToDelete of invoicesToDelete) {
+      if (invoiceToDelete.estado === "Por pagar") {
+        console.warn("Deleting invoice: ", invoiceToDelete._id);
         await Axios.executeDeleteRequest({
           path: "/version-test/api/1.1/obj/FacturasPorPagar",
-          id: invoice._id,
+          id: invoiceToDelete._id,
         });
       }
-    });
+    }
   }
 }
 
