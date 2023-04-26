@@ -12,7 +12,7 @@ class Route {
     }
 
     console.warn(err);
-    return res.status(500).send({ status: "error", err });
+    return res.status(403).send({ status: "error", err });
   }
 }
 

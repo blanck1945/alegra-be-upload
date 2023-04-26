@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
     await BubbleService.deleteInvoices(invoices, invoicesToDelete);
 
     console.warn(chalk.green("11/11- Sending success response"));
-    res.send({
+    res.status(200).send({
       status: "ok",
       message: "Facturas y proveedores creados con exito",
       service: "Bubble",
