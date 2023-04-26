@@ -10,7 +10,7 @@ class BubbleService {
         response: { results, remaining },
       },
     } = await Axios.executeRequest({
-      path: "/version-test/api/1.1/obj/FacturasPorPagar",
+      path: "/api/1.1/obj/FacturasPorPagar",
       companyDoc,
     });
 
