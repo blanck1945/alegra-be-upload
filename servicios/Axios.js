@@ -1,7 +1,12 @@
 const axios = require("axios");
 
+const bubbleBaseUrl = {
+  DEV: "https://co.payana.la/version-test/api/1.1/obj",
+  PROD: "https://co.payana.la/api/1.1/obj",
+};
+
 class Axios {
-  static baseUrl = "https://co.payana.la";
+  static baseUrl = bubbleBaseUrl[process.env.BUBBLE_URL_ENV];
 
   static getNitConstraint(companyDoc) {
     return [

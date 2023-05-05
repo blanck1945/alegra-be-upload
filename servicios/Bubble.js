@@ -10,7 +10,7 @@ class BubbleService {
         response: { results, remaining },
       },
     } = await Axios.executeRequest({
-      path: "/api/1.1/obj/FacturasPorPagar",
+      path: "/FacturasPorPagar",
       companyDoc,
     });
 
@@ -23,7 +23,7 @@ class BubbleService {
         const {
           data: { response },
         } = await Axios.executeRequest({
-          path: "/api/1.1/obj/FacturasPorPagar",
+          path: "/FacturasPorPagar",
           companyDoc,
           cursor: currentCursor,
         });
@@ -44,7 +44,7 @@ class BubbleService {
         response: { results, remaining },
       },
     } = await Axios.executeRequest({
-      path: "/api/1.1/obj/Proveedores",
+      path: "/Proveedores",
       companyDoc,
     });
 
@@ -59,7 +59,7 @@ class BubbleService {
         const {
           data: { response },
         } = await Axios.executeRequest({
-          path: "/api/1.1/obj/Proveedores",
+          path: "/Proveedores",
           companyDoc,
           cursor: currentCursor,
         });
@@ -80,7 +80,7 @@ class BubbleService {
         companyId
       );
       const { data } = await Axios.executePostRequest({
-        path: "/api/1.1/obj/Proveedores",
+        path: "/Proveedores",
         companyDoc,
         data: formattedProvider,
       });
@@ -102,7 +102,7 @@ class BubbleService {
     }
 
     const { data } = await Axios.executePostRequest({
-      path: "/api/1.1/obj/FacturasPorPagar/bulk",
+      path: "/FacturasPorPagar/bulk",
       data: invoiceToCreateString,
       headers: {
         "Content-Type": "text/plain",
@@ -121,7 +121,7 @@ class BubbleService {
 
     invoicesToUpdate.forEach(async (invoice) => {
       await Axios.executePatchRequest({
-        path: "/api/1.1/obj/FacturasPorPagar",
+        path: "/FacturasPorPagar",
         fieldsToUpdate: {
           monto_total: invoice.monto_total,
           monto_factura: invoice.monto_factura,
@@ -144,7 +144,7 @@ class BubbleService {
       if (invoiceToDelete.estado === "Por pagar") {
         console.warn("Deleting invoice: ", invoiceToDelete._id);
         await Axios.executeDeleteRequest({
-          path: "/api/1.1/obj/FacturasPorPagar",
+          path: "/FacturasPorPagar",
           id: invoiceToDelete._id,
         });
       }
