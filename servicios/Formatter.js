@@ -29,9 +29,7 @@ class Formatter {
         tipo_doc_proveedor: invoice.providerTypeDoc,
         origen: "alegra",
         en_siigo: true,
-        ...(invoice.fecha_vencimiento
-          ? { fecha_vencimiento: invoice.dueDate }
-          : {}),
+        ...(invoice.dueDate ? { fecha_vencimiento: invoice.dueDate } : {}),
         ...(invoice.emisionDate ? { fecha_emision: invoice.emisionDate } : {}),
         ...(providerId ? { data_proveedor: providerId } : {}),
       };
