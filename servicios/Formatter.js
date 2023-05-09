@@ -30,7 +30,7 @@ class Formatter {
         origen: "alegra",
         en_siigo: true,
         ...(invoice.fecha_vencimiento
-          ? { fecha_vencimiento: invoice.fecha_vencimiento }
+          ? { fecha_vencimiento: invoice.dueDate }
           : {}),
         ...(invoice.emisionDate ? { fecha_emision: invoice.emisionDate } : {}),
         ...(providerId ? { data_proveedor: providerId } : {}),
