@@ -27,6 +27,7 @@ class Formatter {
         estado: "Por pagar",
         nombre_proveedor: invoice.providerName,
         tipo_doc_proveedor: invoice.providerTypeDoc,
+        has_nit_placeholder: true,
         origen: "alegra",
         en_siigo: true,
         ...(invoice.expirationDate
