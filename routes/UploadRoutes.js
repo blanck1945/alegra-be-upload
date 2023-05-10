@@ -14,7 +14,7 @@ router.post("/", async (req, res) => {
     `Starting the request with \nInvoices: ${invoices} \nCompanyId: ${companyId} \nCompanyDoc: ${companyDoc}`
   );
 
-  Route.execute(req, res, async (_, res) => {
+  return await Route.execute(req, res, async (_, res) => {
     console.warn(chalk.blue("1/11- Getting invoices from Bubble"));
     const BUBBLE_Map = await BubbleService.getInvoices(companyDoc);
 
@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
     await BubbleService.deleteInvoices(invoices, invoicesToDelete);
 
     console.warn(chalk.green("11/11- Sending success response"));
-    res.status(200).send({
+    return res.status(200).send({
       status: "ok",
       message: "Facturas y proveedores creados con exito",
       service: "Bubble",
