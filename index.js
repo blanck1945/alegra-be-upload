@@ -16,6 +16,6 @@ app.get("/", (req, res) => {
 
 app.use("/upload-alegra", uploadRoutes);
 
-app.listen(3008, () => {
-  console.log("Server is running on port 3008");
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running on port ${process.env.PORT}`);
 });
