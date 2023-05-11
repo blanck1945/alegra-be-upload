@@ -18,8 +18,8 @@ class BubbleService {
     // This is to retrieve all the data.
     if (remaining > 0) {
       const pages = Math.ceil(remaining / 100);
-      for (let i = 0, multiplier = 1; i < pages; i++) {
-        const currentCursor = multiplier * 100;
+      for (let i = 1; i <= pages; i++) {
+        const currentCursor = i * 100;
         const {
           data: { response },
         } = await Axios.executeRequest({
