@@ -86,7 +86,7 @@ class BubbleService {
       });
       newCreatedProvidersIds = {
         ...newCreatedProvidersIds,
-        [provider.name]: data.id,
+        [provider.providerName]: data.id,
       };
     }
 

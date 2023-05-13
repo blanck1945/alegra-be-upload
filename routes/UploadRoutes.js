@@ -27,7 +27,11 @@ router.post("/", async (req, res) => {
       BUBBLE_providers
     );
 
-    console.warn(chalk.blue("4/11- Creating Providers"));
+    console.warn(
+      chalk.blue(
+        `4/11- Creating Providers cantidad de proveedres: ${newProviders.length}`
+      )
+    );
     const createdProviders = await BubbleService.createProviders(
       newProviders,
       companyDoc,
@@ -53,7 +57,11 @@ router.post("/", async (req, res) => {
       companyId
     );
 
-    console.warn(chalk.blue("8/11- Creating invoices (BULK)"));
+    console.warn(
+      chalk.blue(
+        `8/11- Creating invoices (BULK) - cantidad de facturas: ${invoicesToCreate.length}`
+      )
+    );
     await BubbleService.createBulkInvoices(invoiceToCreateString, BUBBLE_Map);
 
     console.warn(chalk.blue("9/11- Updating invoices"));
