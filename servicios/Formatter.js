@@ -16,12 +16,13 @@ class Formatter {
   static formatInvoicesToCreate(invoices, providersIds, companyDoc, companyId) {
     let string = "";
     invoices.forEach((invoice) => {
-      const providerId = providersIds[invoice.providerName];
+      const providerId = providersIds[invoice.providerName].id;
+      const doc_proveedor = providersIds[invoice.providerName].doc_proveedor;
       const formattedInvoices = {
         numero_factura: invoice.invoiceNumber,
         monto_total: invoice.total,
         monto_factura: invoice.total,
-        doc_proveedor: invoice.providerDoc,
+        doc_proveedor: doc_proveedor,
         data_empresa: companyId,
         nit_empresa: companyDoc,
         estado: "Por pagar",

@@ -18,7 +18,10 @@ class Compare {
       } else {
         existingProviders = {
           ...existingProviders,
-          [bubbleProvider.nombre_proveedor]: bubbleProvider._id,
+          [bubbleProvider.nombre_proveedor]: {
+            id: bubbleProvider._id,
+            doc_proveedor: bubbleProvider.doc_proveedor,
+          },
         };
       }
     }
